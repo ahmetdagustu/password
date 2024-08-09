@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffae9;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px; 
+    white-space: nowrap; 
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input[type="text"].expand {
+    height: auto;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+#password-length {
+    font-size: 16px;
+    display: none;
+}
+
+.hint {
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.rule-title {
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f5c6cb;
+    color: #721c24;
+}
+
+.rule-description {
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.hint.valid .rule-title {
+    background-color: #c3e6cb; 
+    color: #155724;
+}
+
+.hint.valid .rule-description {
+    background-color: #d4edda; 
+    color: #155724;
+}
+
+.hint.invalid .rule-title {
+    background-color: #f5c6cb; 
+    color: #721c24;
+}
+
+.hint.invalid .rule-description {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.hint .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.hint.valid .rule-title::before {
+    content: "✔ ";
+}
+
+.hint.invalid .rule-title::before {
+    content: "✘ ";
+}
+
+
+
+
