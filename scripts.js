@@ -33,10 +33,9 @@ document.getElementById('password').addEventListener('input', function () {
             existingHint.id = `hint-${rule.id}`;
             existingHint.classList.add('hint', 'invalid');
 
-            existingHint.innerHTML = `
-                <div class="rule-title">Rule ${rule.id}:</div>
-                <div class="rule-description">${rule.text}</div>
-            `;
+            existingHint.innerHTML = 
+                `<div class="rule-title">Rule ${rule.id}:</div>
+                <div class="rule-description">${rule.text}</div>`;
             hints.appendChild(existingHint);
             setTimeout(() => existingHint.classList.add('show'), 100 * i);
         }
@@ -69,16 +68,15 @@ document.getElementById('password').addEventListener('input', function () {
                     rule21Element = document.createElement('div');
                     rule21Element.id = `hint-21`;
                     rule21Element.classList.add('hint', 'invalid');
-                    rule21Element.innerHTML = `
-                        <div class="rule-title">Rule 21:</div>
+                    rule21Element.innerHTML = 
+                        `<div class="rule-title">Rule 21:</div>
                         <div class="rule-description">Your password is not strong enough 🏋️‍♂️</div>
                         <div class="strength-bar">
                             <div class="strength-segment"></div>
                             <div class="strength-segment"></div>
                             <div class="strength-segment"></div>
                             <div class="strength-segment"></div>
-                        </div>
-                    `;
+                        </div>`;
                     hints.appendChild(rule21Element);
                 }
 
@@ -227,15 +225,14 @@ function createRule25UI() {
     rule25Element.id = 'hint-25';
     rule25Element.classList.add('hint', 'invalid');
 
-    rule25Element.innerHTML = `
-        <div class="rule-title">Rule 25:</div>
+    rule25Element.innerHTML = 
+        `<div class="rule-title">Rule 25:</div>
         <div class="rule-description">
             A sacrifice must be made. Pick two letters that you will no longer be able to use.
             <div id="keyboard-container" class="keyboard"></div>
             <div id="chosen-letters">Chosen letters: <span id="selected-letters"></span></div>
             <button id="sacrifice-button" class="btn btn-primary">🔥 Sacrifice</button>
-        </div>
-    `;
+        </div>`;
 
     hints.insertBefore(rule25Element, hints.firstChild); // En üste yerleştir
     createKeyboard(); // Klavyeyi oluştur
@@ -308,6 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observe = new MutationObserver(() => {
         if (document.querySelector('#hint-24.valid') && !document.getElementById('hint-25')) {
+            createRule25UI();
+        } else if (document.querySelector('#hint-23.valid') && !document.getElementById('hint-25')) {
             createRule25UI();
         }
     });
